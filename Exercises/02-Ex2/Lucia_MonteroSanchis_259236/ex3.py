@@ -1,11 +1,14 @@
+# This version does not use 'redirect'
+
 import base64
 import json
 import hmac
-from flask import after_this_request
+#from flask import after_this_request
 from flask import current_app
 from flask import Flask
 from flask import request
-from flask import redirect
+#from flask import redirect
+from flask import make_response
 
 # Implement the verification function
 def superencryption(msg):
@@ -55,8 +58,7 @@ def login_app():
     else:
         cookie = compute_cookie(username, password, 'user')
 
-    redirect_ = redirect('/ex3/list', code=307)
-    response = current_app.make_response(redirect_)
+    response = make_response()
     response.set_cookie('LoginCookie', cookie)
     return response
 

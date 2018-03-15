@@ -1,0 +1,17 @@
+
+# Generate a self-signed certificate
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout a.key -out a.crt
+
+
+# Generate csr from scratch
+openssl req \
+       -newkey rsa:2048 -nodes -keyout b.key \
+       -out b.csr
+
+
+# Generate a CSR from an Existing Certificate and Private Key
+
+openssl x509 \
+       -in domain.crt \
+       -signkey domain.key \
+       -x509toreq -out domain.csr

@@ -19,9 +19,6 @@ def superencryption(msg):
 
 key = superencryption('lucia.monterosanchis@epfl.ch')
 
-# Implement the Flask server
-app = Flask(__name__) # this is used when using a single module
-
 def check_pwd(username, password):
     return (username=='administrator' and str(password)=='42')
 
@@ -30,6 +27,22 @@ def compute_cookie(username, password, type_):
     hmac_obj = hmac.new(key, fields.encode('utf-8'))
     cookie = ",".join([fields, hmac_obj.hexdigest()])
     return base64.b64encode(cookie.encode('utf-8'))
+
+def check_cookie(cookie_64):
+    cookie = base64.b64decode(cookie_64)
+    split_cookie = cookie.decode('utf-8').split(",")
+    fields = ",".join(split_cookie[:6])
+    type_ = split_cookie[5]
+    hmac_rec = split_cookie[6]
+
+    h = hmac.new(key, fields.encode('utf-8'))
+    cookie_ok = hmac.compare_digest(hmac_rec, h.hexdigest())
+    is_admin = (type_ == 'administrator')
+
+    return cookie_ok, is_admin
+
+# Implement the Flask server
+app = Flask(__name__) # this is used when using a single module
 
 @app.route('/ex3/login', methods=['POST'])
 def login_app():
@@ -46,20 +59,6 @@ def login_app():
     response = current_app.make_response(redirect_)
     response.set_cookie('LoginCookie', cookie)
     return response
-
-
-def check_cookie(cookie_64):
-    cookie = base64.b64decode(cookie_64)
-    split_cookie = cookie.decode('utf-8').split(",")
-    fields = ",".join(split_cookie[:6])
-    type_ = split_cookie[5]
-    hmac_rec = split_cookie[6]
-
-    h = hmac.new(key, fields.encode('utf-8'))
-    cookie_ok = hmac.compare_digest(hmac_rec,h.hexdigest())
-    is_admin = (type_ == 'administrator')
-
-    return cookie_ok, is_admin
 
 @app.route('/ex3/list', methods=['POST'])
 def list_app():

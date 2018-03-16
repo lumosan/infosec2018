@@ -1,3 +1,5 @@
+# Lucia Montero Sanchis (2018)
+
 import base64
 import json
 from flask import request

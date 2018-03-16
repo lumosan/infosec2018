@@ -1,3 +1,5 @@
+# Lucia Montero Sanchis (2018)
+
 # Implement the pwd encryption function
 import asyncio
 import websockets

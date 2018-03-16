@@ -1,3 +1,5 @@
+# Lucia Montero Sanchis (2018)
+
 # This version does not use 'redirect'
 
 import base64
@@ -58,6 +60,7 @@ def login_app():
     else:
         cookie = compute_cookie(username, password, 'user')
 
+    # Add the generated cookie to the response
     response = make_response()
     response.set_cookie('LoginCookie', cookie)
     return response
@@ -65,6 +68,7 @@ def login_app():
 @app.route('/ex3/list', methods=['POST'])
 def list_app():
     cookie = request.cookies.get('LoginCookie')
+    # Check the cookie
     cookie_ok, is_admin = check_cookie(cookie)
     if (cookie_ok and is_admin):
         return ':D', 200

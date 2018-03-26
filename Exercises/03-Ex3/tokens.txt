@@ -1,0 +1,6 @@
+ex1a = "hNRFJsGeyVVmenzsWm+TLQC3SIODHb5Vv6amKvoBsxE="
+ex1b = "l/Nab8NUoF3SBuEUB6KUaNTiiZlyYVSOQfWZMLCISkc="
+ex1c = "i/EyIz46ZyKJ+e5oTvRi+trGgZBEBGarHbJIVp8vVso="
+ex2a = "10xEWsx2gd1ZjMCom/s8KamSVlbOUtzlSGg5fq3Gc/k="
+ex2b = "BgOYIoyIjADIh51JMhWuAmxNbffWQnFINRTWUPCdtBk="
+ex2c = "v2yUshUo2shOOAtvf1IBPF7E5T5txwNwT+vCFPfTu5o="

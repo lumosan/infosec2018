@@ -1,0 +1,345 @@
+sudo systemctl start docker
+sudo docker run --rm -p 80:80 --name ex3 dedis/com402_hw3_ex3 lucia.monterosanchis@epfl.ch
+
+sudo docker inspect ex3
+
+[
+    {
+        "Id": "8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae",
+        "Created": "2018-04-08T18:58:44.986946609Z",
+        "Path": "/root/startup.sh",
+        "Args": [
+            "lucia.monterosanchis@epfl.ch"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 23591,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2018-04-08T18:58:47.078894836Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:e235a7e1247b22f472934651adb57abf581a3381759634f917fc65b5515c689e",
+        "ResolvConfPath": "/var/lib/docker/containers/8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae/hostname",
+        "HostsPath": "/var/lib/docker/containers/8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae/hosts",
+        "LogPath": "/var/lib/docker/containers/8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae/8c7c672100d0143ef9c9882b1cd27d93bbb58f7b8c0fde7a604fe173475efdae-json.log",
+        "Name": "/ex3",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "80"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/0279679c847157881ec3924a153c9db5ef63907938b48c440ed00acd51112d67-init/diff:/var/lib/docker/overlay2/a01e948d1229efb3e4b651c6a8fae6fe33be3643bd5cff9ddad66c390e4fb8f8/diff:/var/lib/docker/overlay2/4632d4836d15885c201c643cd6b827ad285cc2b5382b31b138b1fdc7c32783b2/diff:/var/lib/docker/overlay2/b0ed98bd21835cc5c42a8d1cf52f33676c11a62ad41bef77f4a4cdbee41efba7/diff:/var/lib/docker/overlay2/49252751600d14bfba3fec73511d3df66a9520e2e73ad139933f885b4d0857c2/diff:/var/lib/docker/overlay2/f1baf21616cfdc5712f30358f06af2b15cda96396cb2d5e3c989aef96e348b87/diff:/var/lib/docker/overlay2/0d111d440882cbf85ab153120d4907103f9579ab30435e7e0fadb6f9d758151e/diff:/var/lib/docker/overlay2/f2dfb43570d4df215eb38b3c2f92e25b15ef562a2336146601286124c283697e/diff:/var/lib/docker/overlay2/eae54f69a67062e20b85464eeed375113d1e175558796747de9a01b6b250056f/diff:/var/lib/docker/overlay2/608795a72fb30b6e2ab85403864893104b7025cb2315c73b1078346b2f8c0961/diff:/var/lib/docker/overlay2/ef9de2aaa7b8e72be4b764e0e2745bf8a2972f15ed92ea48a75c6e84d4e5784d/diff:/var/lib/docker/overlay2/e195d0771446b09778d8a3228d4c47ed1da253776e0fd7337e66663ccde12b7e/diff:/var/lib/docker/overlay2/0bd9673a7d6d35a0fe51cc0aa36a614d0bc22ac9a33f94cf7a95cef5186c3255/diff:/var/lib/docker/overlay2/e77b07f234c281b29ff88ae30ec6917331ec0635ecbcd35c7d3db0f3a7afd9c0/diff:/var/lib/docker/overlay2/d8386fcf7f9a47cb773a5f31ae5bd7fcc5882151b47e1179307c91eae061e6d1/diff:/var/lib/docker/overlay2/5db41e3bd63e9df5ee7c791b50bab50b15133a56e38c1091c2b1f95bcce9cf1d/diff:/var/lib/docker/overlay2/8713e7a8dc4e0515b0cac7f49f8f1d303eb47fad72428fc5b0adcb96d2f14303/diff:/var/lib/docker/overlay2/c6ac26474911c74079f665b084443f5fdc9ee0a088e4b0fa71607c33fc14343f/diff:/var/lib/docker/overlay2/a43be7c2b7dfb14eebe3d9c8d674a31f15d2d0749a7588156b3eccd73fa340a4/diff:/var/lib/docker/overlay2/3ad2a91b9f90d6f38da358ead2f5191536d1a2dd8ed905b0cc656e745dd22ab9/diff:/var/lib/docker/overlay2/6cfefdbee435ea1564a07c40fc8f19bb6ab69ed5e9a576e9f362fc0b0ce3092e/diff:/var/lib/docker/overlay2/048902576a4ecf283fd2e38a944120cfc97fe3a04f999c45cf5dc759cde56201/diff:/var/lib/docker/overlay2/35b2c8a7969a1f45931fcda0fb262e5cc5e13712d74a0eadefa8dace5ec0b03f/diff:/var/lib/docker/overlay2/2af8d7425690bbf5e190bbc3cebf6af37a33cbe752bed2e5b312a21f60fa3f6e/diff:/var/lib/docker/overlay2/4be13903170ce178ed09ce1b4770f446553a37bf89d648dda3fba1e19360ffaa/diff:/var/lib/docker/overlay2/6ac9ed3d8897474b1b87aca9efba6916f237a32a13f81eccf1d1c5dbf217474d/diff",
+                "MergedDir": "/var/lib/docker/overlay2/0279679c847157881ec3924a153c9db5ef63907938b48c440ed00acd51112d67/merged",
+                "UpperDir": "/var/lib/docker/overlay2/0279679c847157881ec3924a153c9db5ef63907938b48c440ed00acd51112d67/diff",
+                "WorkDir": "/var/lib/docker/overlay2/0279679c847157881ec3924a153c9db5ef63907938b48c440ed00acd51112d67/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "8c7c672100d0",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "lucia.monterosanchis@epfl.ch"
+            ],
+            "Image": "dedis/com402_hw3_ex3",
+            "Volumes": null,
+            "WorkingDir": "/root",
+            "Entrypoint": [
+                "/root/startup.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "d7453a0f0f6cb15e7e97bcfcdd15ca19ecbc9d4af2a6c9e7f201621a0d854a85",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "80"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/d7453a0f0f6c",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "481b5571218edc4e4b848fd6e17a28262cbb00a1889d124efc86b6ae3a82fb72",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "6812535e7b9ff9b795f2761beb15879605078d546d8eb8b61642f347a616e78e",
+                    "EndpointID": "481b5571218edc4e4b848fd6e17a28262cbb00a1889d124efc86b6ae3a82fb72",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+
+
+"IPAddress": "172.17.0.2",
+
+
+sudo docker exec -it ex3 /bin/bash
+cat startup.sh
+
+#!/bin/bash
+cd /root
+
+if [ $# -eq 0 ]; then
+    echo "must provide address email as first argument"
+    exit 1
+fi
+
+EMAIL=$1
+
+if [ ! -f credentials.cfg ]; then
+    echo "credentials.cfg not found. exit"
+    exit 1
+fi
+
+. credentials.cfg
+
+if ! [[  -v ROOT_PWD ]]; then
+    echo "provide ROOT_PWD variable"
+    exit 1
+fi
+
+if ! [[  -v USERNAME1 ]]; then
+    echo "provide USERNAME1 variable"
+    exit 1
+fi
+
+if ! [[  -v USER_PWD1 ]]; then
+    echo "provide USER_PWD1 variable"
+    exit 1
+fi
+
+if ! [[ -v DATABASE1 ]]; then
+    echo "provide DATABASE1 variable"
+    exit 1
+fi
+
+if ! [[  -v USERNAME2 ]]; then
+    echo "provide USERNAME2 variable"
+    exit 1
+fi
+
+if ! [[  -v USER_PWD2 ]]; then
+    echo "provide USER_PWD2 variable"
+    exit 1
+fi
+
+if ! [[ -v DATABASE2 ]]; then
+    echo "provide DATABASE2 variable"
+    exit 1
+fi
+
+echo "launching mysql ..."
+mysqld_safe --user=root 2>&1 &
+sleep 5
+mysqladmin -u root password "$ROOT_PWD" 2>&1
+tfile=`mktemp`
+
+cat > $tfile <<HERE
+SET @@SESSION.SQL_LOG_BIN=0;
+DROP DATABASE IF EXISTS test;
+
+CREATE DATABASE IF NOT EXISTS $DATABASE1;
+CREATE USER IF NOT EXISTS '$USERNAME1'@'localhost' IDENTIFIED BY '$USER_PWD1';
+FLUSH PRIVILEGES;
+GRANT ALL ON $DATABASE1.* TO '$USERNAME1'@'localhost' IDENTIFIED BY '$USER_PWD1';
+
+CREATE DATABASE IF NOT EXISTS $DATABASE2;
+CREATE USER IF NOT EXISTS '$USERNAME2'@'localhost' IDENTIFIED BY '$USER_PWD2';
+FLUSH PRIVILEGES;
+GRANT ALL ON $DATABASE2.* TO '$USERNAME2'@'localhost' IDENTIFIED BY '$USER_PWD2';
+FLUSH PRIVILEGES;
+HERE
+
+
+echo "creating users ..."
+mysql -uroot -p$ROOT_PWD < $tfile 2>&1
+
+## EXERCISE 1
+echo "creating table 1"
+cat > $tfile <<HERE
+USE $DATABASE1;
+CREATE TABLE personalities(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                         name varchar(100) not null);
+
+CREATE TABLE contact_messages(name varchar(100) not null,
+                      mail varchar(100) not null,
+                      message varchar(200) not null);
+HERE
+mysql -uroot -p$ROOT_PWD < $tfile 2>&1
+
+
+## EXERCISE 2
+echo "creating table 2"
+cat > $tfile <<HERE
+USE $DATABASE2;
+CREATE TABLE users(name varchar(100) not null,
+                   password varchar(40) not null);
+
+CREATE TABLE contact_messages(name varchar(100) not null,
+                      mail varchar(100) not null,
+                      message varchar(200) not null);
+HERE
+
+mysql -uroot -p$ROOT_PWD < $tfile 2>&1
+rm $tfile
+
+if [ $# -eq 1 ]; then
+    echo "launching flask web app in foreground"
+    python3 site.pyc $EMAIL 2>&1
+    exit
+fi
+
+echo "launching flask web app in background"
+python3 site.pyc $EMAIL 2>&1 &
+sleep 1
+
+
+shift
+chown com402:com402 $1
+
+TIMEOUT=10
+echo "launching user script $1 with timeout $TIMEOUT"
+su com402 -c "timeout -t $TIMEOUT python3 $1 2>&1" 2>&1
+
+
+
+
+
+https://www.troyhunt.com/everything-you-wanted-to-know-about-sql/
+https://www.w3schools.com/sql/sql_notnull.asp
+https://stackoverflow.com/questions/2504163/include-in-select-a-column-that-isnt-actually-in-the-database
+
+
+

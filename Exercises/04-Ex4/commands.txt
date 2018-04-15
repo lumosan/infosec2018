@@ -1,0 +1,18 @@
+EX4_3
+
+LIST DOCKER IMAGES
+	sudo docker images -a
+	sudo docker rmi dedis/com402_hw3_ex4_client dedis/com402_hw3_ex4_attacker
+
+START EXERCISE
+	sudo systemctl start docker
+	sudo docker run -it -p 80:80 --rm --name ex3 dedis/com402_hw4_ex3 bash
+
+FINISH EXERCISE
+	sudo docker ps -as
+	sudo docker rm -f generator
+	sudo systemctl stop docker
+
+
+EX4_4
+	sudo docker run -it -p 80:80 -p 443:443 --name hw4_ex4 dedis/com402_hw4_ex4

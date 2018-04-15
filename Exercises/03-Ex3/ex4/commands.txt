@@ -1,0 +1,78 @@
+LIST DOCKER IMAGES
+	sudo docker images -a
+	sudo docker rmi dedis/com402_hw3_ex4_client dedis/com402_hw3_ex4_attacker
+
+START EXERCISE
+	sudo systemctl start docker
+	sudo ./run_dockers.sh lucia.monterosanchis@epfl.ch
+	sudo docker attach attacker
+
+KNOW WHICH IS THE INTERFACE OF THE ATTACKER CONTAINER (to open wireshark there)
+	On the container, run :
+	cat /sys/class/net/eth0/iflink
+	And on the host, find a veth with an ifindex value matching the iflink value of your container’s interface :
+	cat /sys/class/net/vethdf4fca6/ifindex
+
+MANAGE RULES
+	iptables -L --line-numbers
+	iptables -D FORWARD 1
+
+CONFIG RULES
+	iptables -t nat -A POSTROUTING -j MASQUERADE
+	#iptables -A INPUT -p tcp -m tcp --sport 443 -j ACCEPT
+	#iptables -A OUTPUT -p tcp -m tcp --dport 443 -j ACCEPT
+	iptables -A FORWARD -s 172.16.0.2 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 172.16.0.3 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 128.178.156.165 -p tcp --sport 443 -j NFQUEUE --queue-num 0
+	#iptables -A FORWARD -s 128.178.156.165 -d 172.16.0.2 -p tcp -j NFQUEUE --queue-num 0
+	#iptables -A FORWARD -s 172.16.0.2 -d 128.178.156.165 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+
+	version 1
+	iptables -A FORWARD -s 172.16.0.2 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 172.16.0.3 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 128.178.156.165 -p tcp --sport 443 -j NFQUEUE --queue-num 0
+
+	version 2
+	iptables -A FORWARD -s 172.16.0.2 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 128.178.156.165 -p tcp --sport 443 -j NFQUEUE --queue-num 0
+
+	version 3
+	iptables -A FORWARD -s 172.16.0.2 -d 128.178.156.165 -p tcp --dport 443 -j NFQUEUE --queue-num 0
+	iptables -A FORWARD -s 128.178.156.165 -d 172.16.0.2 -p tcp --sport 443 -j NFQUEUE --queue-num 0
+
+
+
+python3 ex4.py
+sudo docker ps -as
+sudo docker rm -f generator
+sudo systemctl stop docker
+
+
+
+Trick a client and a server into using TLSv1 for their communication -- You need to convince the client that the server does not understand versions of TLS newer than v1.
+
+The client container (172.16.0.2) will try every 10 seconds to connect to ​com402.epfl.ch using SSL and will have the attacker container (172.16.0.3) set as its default gateway.
+
+TODO: Steps!
+
+As in HW1, you need iptables to set up packet forwarding on the attacker and NFQUEUE rules to be able to accept or drop packets. You will have to install the rules ​on the attacker container: You can refer to HW1, but you'll need to slightly change them. ​If you are in the right track, Wireshark will show outgoing traffic for ​com402 ​(128.178.156.165​). If not, your rules are most likely incorrect. Yet, observing traffic for ​com402 does not mean your rules are complete.
+
+--------
+
+	Every packet that goes through the attacker machine coming from the generator
+	matches the iptables FORWARD chain. In our case the generator sends packets to
+	com402.epfl.ch ​, but the packet passes through the attacker, since the attacker
+	has control of the router.
+
+	For theses packets, check if the source address is the one from the generator, and if
+	it’s a TCP packet with the destination port being 80 (i.e., mostly HTTP traffic).
+
+	In that case, redirect that packet to a user-space queue: NFQUEUE number 0.
+	All packets in the NFQUEUE can be read by user space programs which can decide if a
+	packet goes on or is dropped
+
+--------
+
+When the server realizes that it has been connected using TLSv1, it will create ​myprecious.txt with the token.
+
+Wireshark will come in very handy to observe the exchange of packets (or lack thereof) between your computer and the server. You can filter based on com402 server’s IP address.

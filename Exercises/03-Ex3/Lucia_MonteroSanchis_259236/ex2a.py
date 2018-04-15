@@ -1,3 +1,6 @@
+# Lucia Montero Sanchis
+# Information Security and Privacy, EPFL 2018
+
 # Read file
 with open("hw3_ex2.txt") as f:
     content = f.readlines()

@@ -1,3 +1,5 @@
+# Lucia Montero Sanchis
+# Information Security and Privacy, EPFL 2018
 
 ##############################
 # First part

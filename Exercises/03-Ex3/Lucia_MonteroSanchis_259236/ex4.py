@@ -3,8 +3,6 @@
 import netfilterqueue
 from netfilterqueue import NetfilterQueue
 from scapy.all import *
-import json
-import requests
 
 # iptables -t nat -A POSTROUTING -j MASQUERADE
 # iptables -A FORWARD -s 172.16.0.2 -p tcp --dport 443 -j NFQUEUE --queue-num 0

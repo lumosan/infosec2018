@@ -13,6 +13,8 @@ FINISH EXERCISE
 	sudo docker rm -f generator
 	sudo systemctl stop docker
 
+enter docker:
+	docker exec -it [container-id] bash
 
 EX4_4
 	sudo docker run -it -p 80:80 -p 443:443 --name hw4_ex4 dedis/com402_hw4_ex4

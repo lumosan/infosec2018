@@ -50,7 +50,9 @@ def get_movies_with_rating(anon, rating):
 # database should have enough information to be used by get_top_rated. If you
 # use a too simple hashing-function like sha-256, the result will be rejected.
 def anonymize_2(db):
-    def superencryption(msg):
+    def hyperencryption(msg, salt, iterations):
+        assert iterations > 0
+        import hashlib
         import base64
         key = "Never send a human to do a machine's job"
         if (len(key) < len(msg)):
@@ -58,8 +60,11 @@ def anonymize_2(db):
         amsg = map(ord, msg)
         akey = map(ord, key[0:len(msg)])
         y = ''.join([chr(v ^ i) for (i,v) in zip(akey, amsg)])
-        return base64.b64encode(y.encode('utf-8'))
-    return [[superencryption(e[0]), e[1], '*', e[3]] for e in db]
+        z = (y + salt).encode('utf-8')
+        for i in range(iterations):
+            z = hashlib.sha256(z).digest()
+        return base64.b64encode(z)
+    return [[hyperencryption(e[0], 'adoif309e', 5), e[1], '*', e[3]] for e in db]
 
 
 # get_top_rated searches for all users having rated a movie and searches their

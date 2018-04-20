@@ -7,6 +7,7 @@ LIST DOCKER IMAGES
 START EXERCISE
 	sudo systemctl start docker
 	sudo docker run -it -p 80:80 --rm --name ex3 dedis/com402_hw4_ex3 bash
+	sudo docker run -it -p 80:80 -p 443:443 --name hw4_ex4 dedis/com402_hw4_ex4
 
 FINISH EXERCISE
 	sudo docker ps -as
@@ -16,5 +17,8 @@ FINISH EXERCISE
 enter docker:
 	docker exec -it [container-id] bash
 
-EX4_4
-	sudo docker run -it -p 80:80 -p 443:443 --name hw4_ex4 dedis/com402_hw4_ex4
+
+others for ex4:
+	nginx
+	nginx -s reload
+	vim /etc/nginx/conf.d/default.conf

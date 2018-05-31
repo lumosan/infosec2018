@@ -35,11 +35,13 @@ def messages():
                 sql = "SELECT name, message FROM messages WHERE name = %s"
                 num_res = cursor.execute(sql, (name,))
                 res = cursor.fetchall()
-                if num_res:
-                    json = [{"name": e[0], "message": e[1]} for e in res]
-                    return jsonify(json), 200
-                else:
-                    return "", 500
+                #if num_res:
+                    #json = [{"name": e[0], "message": e[1]} for e in res]
+                    #return jsonify(json), 200
+                #else:
+                    #return "", 500
+                json = [{"name": e[0], "message": e[1]} for e in res]
+                return jsonify(json), 200
         else:
             sql = "SELECT name, message FROM messages"
             cursor.execute(sql)

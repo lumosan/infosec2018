@@ -1,0 +1,30 @@
+"exploit sandwich"
+
+
+----------
+
+demo: https://github.com/ace0/vulnerability-demo
+
+Segmentation fault -> Overloaded?
+
+whoami -> we can see if we achieved it or not, id1000=?user
+id
+
+We want to be root!
+
+----------
+
+Tasks in our assignment:
+
+1 We're fonna have to 1st look at the code and try to find the vulnerabilities (they're supposed to be obvious, we should be able to easily find them)
+2 See how stack frames are setup
+3 Do arithmetic to see where in memory we need to go/jump to
+
+----------
+
+Integer overflow (also in github repo)
+https://docs.microsoft.com/en-us/cpp/c-language/storage-of-basic-types
+C has warnings, but still allows you to do overflows
+"atoi" function
+"memcpy"
+

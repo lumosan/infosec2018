@@ -1,3 +1,7 @@
+# Lucia Montero Sanchis
+# 259236
+
+
 #!/usr/bin/env python3
 
 import sys
@@ -165,8 +169,8 @@ class RiffleServer:
         mask = "{0:b}".format(bitmask)
         mask_bin = '0' * (len(self.chat_messages) - len(mask)) + mask
 
-        print(self.server_id, bitmask)
-        print(self.chat_messages)
+        #print(self.server_id, bitmask)
+        #print(self.chat_messages)
 
         for idx, bit in enumerate(reversed(mask_bin)):
             if bit == '1':
@@ -189,7 +193,7 @@ class RiffleServer:
         else:
             result = b''
 
-        print(self.server_id, result)
+        # print(self.server_id, result)
 
         # type(result) = <class 'bytes'> in Python3
         self.udp_socket.sendto(result, sender)

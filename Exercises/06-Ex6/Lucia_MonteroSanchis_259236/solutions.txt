@@ -1,0 +1,68 @@
+Lucia Montero Sanchis
+259236
+
+# Trace 1: HTTP
+## Give three websites (domain name and IP addresses) visited from source IP
+address `192.168.0.100` (this does not include the URLs related to online ads,
+showing images, internet telemetry, API calls, etc.)
+
+amazon.com - 205.251.242.54
+baidu.com - 180.76.3.151
+bing.com - 69.16.143.26
+
+## Give three search queries and the domain of the site for each query made from source IP address `192.168.0.100`
+
+amazon.com - adventures in Stochastic Processes
+baidu.com - lai'zi
+bing.com - madison map
+
+# Trace 2: FTP
+## What is the user name and password used to connect to the FTP server?
+
+username: shiningmoon
+password: public
+
+## List all files that were downloaded.
+
+dragon.zip, ARP.java, L2Switch.java, phase1.html
+
+## List the full path for two files (in different directories) on the FTP server that were NOT downloaded.
+
+/jerry5tests.zip, /phase1/Datalink.java
+
+# Trace 3: Traceroute
+## Briefly describe how the traceroute tool works including which network protocols are in use.
+
+Traceroute sends a sequence of (by default) UDP packets with an increasing TTL value, starting with 1 (and increasing by 1). Every time one of these packets reaches a router, the TTL of the packet decreases by 1. When the TTL value of a packet reaches 0, the router drops it and returns the ICMP error message **ICMP Time Exceeded** back to the source. As a result, the source receives an **ICMP Time Exceeded** message from each of the routers that packets traverse until reaching the destination.
+
+## Give the source IP address that issued the traceroute command and the destination IP address.
+
+Source IP: 192.168.0.100
+Destination IP: 74.125.225.46
+
+## List the IP addresses on the route between source and destination (meaning:
+do not include the IP addresses of the source and destination).
+
+192.168.0.1, 10.131.180.1, 96.34.20.20, 96.34.17.95, 96.34.16.112, 96.34.16.77, 96.34.2.4, 96.34.0.7, 96.34.0.9, 96.34.3.9, 96.34.152.30, 209.85.254.120, 209.85.250.28
+
+# Trace 4: POP
+## What is the POP username and password?
+
+username: cs155@dummymail.com
+password: whitehat
+
+## How many emails are in the user’s mailbox?
+
+5
+
+## Give the contents of from, to, subject, and date for one email message.
+
+From: hariny <harinym@stanford.edu>
+To: cs155@dummymail.com
+Subject: test message
+Date: Fri, 23 Apr 2010 10:25:00 -0700
+
+## What email client (application) and operating system is this person using to send and receive email?
+
+Client: Thunderbird 2.0.0.23
+OS: Windows

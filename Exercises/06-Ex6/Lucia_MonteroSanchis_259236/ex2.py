@@ -1,3 +1,6 @@
+# Lucia Montero Sanchis
+# 259236
+
 # I need to run this code three times
 
 from cothority import Cothority

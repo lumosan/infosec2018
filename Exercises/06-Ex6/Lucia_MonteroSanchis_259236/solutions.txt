@@ -6,15 +6,15 @@ Lucia Montero Sanchis
 address `192.168.0.100` (this does not include the URLs related to online ads,
 showing images, internet telemetry, API calls, etc.)
 
-amazon.com - 205.251.242.54
-baidu.com - 180.76.3.151
-bing.com - 69.16.143.26
+www.amazon.com - 205.251.242.54
+www.a.shifen.com - 180.76.3.151
+www.bing.com - 69.16.143.26
 
 ## Give three search queries and the domain of the site for each query made from source IP address `192.168.0.100`
 
-amazon.com - adventures in Stochastic Processes
-baidu.com - lai'zi
-bing.com - madison map
+www.amazon.com - adventures in Stochastic Processes
+www.a.shifen.com - 来自星星的你
+www.bing.com - madison map
 
 # Trace 2: FTP
 ## What is the user name and password used to connect to the FTP server?
@@ -60,7 +60,7 @@ password: whitehat
 From: hariny <harinym@stanford.edu>
 To: cs155@dummymail.com
 Subject: test message
-Date: Fri, 23 Apr 2010 10:25:00 -0700
+Date: Fri, 23 Apr 2010
 
 ## What email client (application) and operating system is this person using to send and receive email?
 
